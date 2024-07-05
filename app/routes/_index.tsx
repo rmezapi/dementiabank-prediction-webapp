@@ -16,10 +16,10 @@ export default function Index() {
         Over time, researchers and clinicians recognized its value in assessing cognitive and linguistic abilities in patients with dementia, particularly Alzheimer's.
       </p>
       <h4> How it works: </h4>
-      <p className="text"> You will see an image and be prompted to describe everything you see in the image in an audio recording which will sent to a 
+      <p className="text"> You will see an image and be prompted to describe everything you see in the image in an audio recording which will be sent to a 
         machine learning model which has been trained on around 300 responses to the Cookie Theft Test. The model will then return
         a diagnosis. This is not meant to be a definitive diagnosis, but rather a proof of concept for a future model that would rely on 
-        more data and be more accurate.
+        more data and be more accurate. For best results, make sure to be detailed and concise in your descriptions.
       </p>
       {/* button to start test */}
       <Button

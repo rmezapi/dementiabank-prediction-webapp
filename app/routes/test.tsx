@@ -65,7 +65,7 @@ export default function Test() {
         
       />
       <h3> Instructions: </h3>
-      <p> Describe everything you see in the image in an audio recording.</p> 
+      <p> Describe everything you see in the image in detail an audio recording.</p> 
       <p>When done, click the 'SUBMIT' button below</p>
 
       {/* audio recorder component to record and handle all the audio recording logic */}
