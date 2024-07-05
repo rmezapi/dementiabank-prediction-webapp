@@ -65,9 +65,8 @@ export default function Test() {
         className="mb-4"
       />
       <h3> Instructions: </h3>
-      <p> Describe everything you see in the image in an audio recording.</p>
-      <p> Click on the 'RECORD' button below to begin recording </p>
-      <p> When done, click the 'SUBMIT' button below</p>
+      <p> Describe everything you see in the image in an audio recording.</p> 
+      <p>When done, click the 'SUBMIT' button below</p>
 
       {/* audio recorder component to record and handle all the audio recording logic */}
       <AudioRecorder />

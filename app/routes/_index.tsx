@@ -9,7 +9,7 @@ export function links() {
 export default function Index() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-4xl font-bold mb-8"> Welcome to Cookie Theft Dementia Detection Model Interface </h1>
+      <h2 className="text-4xl font-bold mb-8"> Welcome to Cookie Theft Dementia Detection Model Interface </h2>
       {/* button to start test */}
       <Button
         as={Link}

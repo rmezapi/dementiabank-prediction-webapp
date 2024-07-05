@@ -62,3 +62,16 @@ body {
   font-size: 12px;
   margin: 3px;
 }
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: black;
+  background-color: #f0f0f0;
+  /* margin-top: 200px; */
+}
+
+.submit{
+  margin-bottom: 150px;
+}

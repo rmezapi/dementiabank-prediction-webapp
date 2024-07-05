@@ -9,6 +9,7 @@ import {
 } from "@remix-run/react";
 
 import '/app/styles/Global.css';
+import { Footer } from "./components/Footer";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: "/app/styles/Global.css" },
@@ -24,7 +25,12 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
-        <Outlet />
+        <div className="flex flex-col min-h-screen">
+          <main className="flex-grow">
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
         <ScrollRestoration />
         <Scripts />
       </body>
