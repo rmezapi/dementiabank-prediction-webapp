@@ -3,7 +3,7 @@ import { Button } from "@nextui-org/react";
 import 'public/styles/Global.css';
 
 export function links() {
-  return [{ rel: "stylesheet", href: "public/styles/Global.css" }];
+  return [{ rel: "stylesheet", href: "/styles/Global.css" }];
 }
 
 export default function Index() {
