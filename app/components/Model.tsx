@@ -3,6 +3,7 @@ import { useFetcher } from '@remix-run/react';
 import { Button } from '@nextui-org/react';
 import { useNavigate } from '@remix-run/react';
 import 'public/styles/Global.css';
+import ConfettiExplosion from 'react-confetti-explosion';
 
 export function links() {
   return [{ rel: "stylesheet", href: "/public/styles/Global.css" }];
@@ -56,6 +57,7 @@ export function Model({ transcript }: ModelProps) {
       {showButton && transcript && (
         <Button className="submit-btn" onClick={sendToModel}>Get test results!</Button>
       )}
+      {result == "No Dementia" && <ConfettiExplosion />}
       {/* show the result and confidence when there is a result */}
       {result && (
         <div>
