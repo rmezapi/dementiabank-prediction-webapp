@@ -7,8 +7,6 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import Index from './routes/_index';
-import Diagnosis from './routes/diagnosis';
 
 import '/app/styles/Global.css';
 

@@ -71,7 +71,7 @@ export function Model({ transcript }: ModelProps) {
       {/* show loading message when the fetcher is submitting */}
       {fetcher.state === 'submitting' && <p>Loading...</p>}
       {/* show error message when there is an error */}
-      {fetcher.data?.error && <p>Error: {fetcher.data.error}</p>}
+      {fetcher.data?.error && <p>Error: {fetcher.data.error}</p> && <p> I'm having trouble connecting to the model, please try again! </p>}
       <p className='line'>---</p>
       {/* show button to take test again when the button is shown */}
       {!showButton && (
