@@ -8,11 +8,13 @@ export function links() {
   return [{ rel: "stylesheet", href: "/app/styles/Global.css" }];
 }
 
+// props for the model component 
 interface ModelProps {
   transcript: string;
 }
 
 export function Model({ transcript }: ModelProps) {
+  // fetcher and navigate are remix hooks to handle the form submission and navigation
   const fetcher = useFetcher();
   const navigate = useNavigate();
 
@@ -20,11 +22,13 @@ export function Model({ transcript }: ModelProps) {
   const [confidence, setConfidence] = useState(null);
   const [showButton, setShowButton] = useState(true);
 
+  // handleNavigateToHome is a function that navigates to the home page when called
   const handleNavigateToHome = () => {
     console.log('Navigating to home');
     window.location.href = '/';
   };
 
+  // sendToModel is a function that sends the transcription data to the HuggingFace API
   const sendToModel = async () => {
     const formData = new FormData();
     formData.append('transcript', transcript);
@@ -33,6 +37,7 @@ export function Model({ transcript }: ModelProps) {
     setShowButton(false);  // Hide the button after clicking
   };
 
+  // useEffect is a hook that runs when the fetcher data changes
   useEffect(() => {
     if (fetcher.data?.result) {
       console.log(fetcher.data.result[0]);
@@ -43,11 +48,15 @@ export function Model({ transcript }: ModelProps) {
 
   return (
     <div>
+      {/* show textand  transcript when there is a transcript */}
       {transcript && <h5>You said:</h5> && <p className="text-2xl">"{transcript}"</p>}
+      {/* show button to take test to see results when there is no transcript */}
       {!transcript && <Button onClick={handleNavigateToHome} color="primary" className="btn"> Take test to see results! </Button>}
+      {/* show button to get test results when there is a transcript and the button is shown */}
       {showButton && transcript && (
         <Button className="btn" onClick={sendToModel}>Get test results!</Button>
       )}
+      {/* show the result and confidence when there is a result */}
       {result && (
         <div>
           <h5>Your diagnosis:</h5>
@@ -59,9 +68,12 @@ export function Model({ transcript }: ModelProps) {
           with {Number(parseFloat(confidence).toFixed(2))}% Confidence
         </p>
       )}
+      {/* show loading message when the fetcher is submitting */}
       {fetcher.state === 'submitting' && <p>Loading...</p>}
+      {/* show error message when there is an error */}
       {fetcher.data?.error && <p>Error: {fetcher.data.error}</p>}
       <p className='line'>---</p>
+      {/* show button to take test again when the button is shown */}
       {!showButton && (
         <Button
           onClick={handleNavigateToHome}

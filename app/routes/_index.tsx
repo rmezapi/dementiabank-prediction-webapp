@@ -7,10 +7,10 @@ export function links() {
 }
 
 export default function Index() {
-  console.log('Index route rendered');
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-4xl font-bold mb-8"> Welcome to Dementia Detection AI</h1>
+      <h1 className="text-4xl font-bold mb-8"> Welcome to Cookie Theft Dementia Detection Model Interface </h1>
+      {/* button to start test */}
       <Button
         as={Link}
         to="./test"
@@ -18,7 +18,7 @@ export default function Index() {
         size="lg"
         className="btn"
       >
-        Begin Test
+        Click to Begin Test
       </Button>
     </div>
   );

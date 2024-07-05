@@ -58,7 +58,6 @@ export default function Test() {
   return (
     <div>
       <h1>Dementia Detection Test</h1>
-      {/* Add your test content here */}
       <Image
         width={500}
         alt="Cookie Theft Test"
@@ -70,15 +69,7 @@ export default function Test() {
       <p> Click on the 'RECORD' button below to begin recording </p>
       <p> When done, click the 'SUBMIT' button below</p>
 
-      {/* <Button
-        as={Link}
-        to=""
-        color="primary"
-        size="lg"
-        className="record-btn"
-      >
-        Record
-      </Button> */}
+      {/* audio recorder component to record and handle all the audio recording logic */}
       <AudioRecorder />
     </div>
   );

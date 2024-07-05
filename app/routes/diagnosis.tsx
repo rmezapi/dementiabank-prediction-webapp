@@ -9,6 +9,7 @@ export function links() {
   return [{ rel: "stylesheet", href: "app/styles/Global.css"  }];
 }
 
+// fetchWithRetry is a function that fetches data from the HuggingFace API with 3 retries
 async function fetchWithRetry(url: string, options: RequestInit, maxRetries = 3) {
   for (let i = 0; i < maxRetries; i++) {
     try {
@@ -24,7 +25,8 @@ async function fetchWithRetry(url: string, options: RequestInit, maxRetries = 3)
   throw new Error('Max retries reached');
 }
 
-
+// action is a function that handles the form submission and sends the transcription data to the HuggingFace API
+// called from the SubmitRecordingButton
 export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
   const transcript = formData.get('transcript');
@@ -64,13 +66,15 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
 
 export default function Diagnosis() {
+    // these allow us to get transcription data from the URL state, sent from the SubmitRecordingButton
     const location = useLocation();
     const text = location.state?.transcript;
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <h1 className="text-4xl font-bold mb-8">Test Results</h1>
-
+      
+      {/* model component render with transcription data as param */}
       <Model transcript={text} />
     </div>
   );
