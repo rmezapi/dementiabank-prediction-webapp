@@ -1,8 +1,7 @@
-import React from 'react';
-import '/styles/Global.css';
+import 'app/styles/Global.css';
 
 export function links() {
-    return [{ rel: "stylesheet", href: "/styles/Global.css" }];
+    return [{ rel: "stylesheet", href: "app/styles/Global.css" }];
   }
 
 export function Footer() {

@@ -1,9 +1,9 @@
 import { Link } from "@remix-run/react";
 import { Button } from "@nextui-org/react";
-import '/styles/Global.css';
+import 'app/styles/Global.css';
 
 export function links() {
-  return [{ rel: "stylesheet", href: "/styles/Global.css" }];
+  return [{ rel: "stylesheet", href: "app/styles/Global.css" }];
 }
 
 export default function Index() {
