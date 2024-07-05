@@ -40,6 +40,7 @@ export const SubmitRecordingButton = ({ audioBlob }: SubmitRecordingButtonProps)
     <>
       {/* submit button */}
       <Button
+        className="submit"
         onClick={() => {
           handleTranscribe();
         }}

@@ -81,3 +81,44 @@ body {
   align-items: center;
   max-width: 500px;
 }
+
+/* Mobile friendly styles */
+@media (max-width: 768px) {
+  .diagnosis {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .submit {
+    margin-bottom: 100px;
+  }
+
+  .footer {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .record-btn, .stop-btn, .submit-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .recording-status {
+    font-size: 14px;
+  }
+
+  .audio {
+    width: 100%;
+  }
+
+  .audio audio {
+    width: 100%;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
