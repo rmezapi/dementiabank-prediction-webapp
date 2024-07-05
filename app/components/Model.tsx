@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { useFetcher } from '@remix-run/react';
 import { Button } from '@nextui-org/react';
 import { useNavigate } from '@remix-run/react';
-import 'public/styles/Global.css';
+import '/styles/Global.css';
 import ConfettiExplosion from 'react-confetti-explosion';
 
 export function links() {
-  return [{ rel: "stylesheet", href: "/public/styles/Global.css" }];
+  return [{ rel: "stylesheet", href: "/styles/Global.css" }];
 }
 
 // props for the model component 

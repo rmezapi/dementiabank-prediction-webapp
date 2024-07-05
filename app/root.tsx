@@ -8,11 +8,11 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import 'public/styles/Global.css';
+import '/styles/Global.css';
 import { Footer } from "./components/Footer";
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: "public/styles/Global.css" },
+  { rel: "stylesheet", href: "/styles/Global.css" },
 ];
 
 export default function App() {
