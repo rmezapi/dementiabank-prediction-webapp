@@ -1,68 +1,16 @@
-# Welcome to Remix!
+# Cookie Theft Test for Dementia Detection
 
-- [Remix Docs](https://remix.run/docs)
-- [Netlify Functions Overview](https://docs.netlify.com/functions/overview)
 
-## Netlify Setup
 
-1. Install the [Netlify CLI](https://docs.netlify.com/cli/get-started/):
+<img width="719" alt="image" src="https://github.com/rmezapi/dementia-bank-speech-to-text-prediction-webapp/assets/69809420/181b7f4c-e235-4ef5-bfa2-00a66a754150">
 
-```sh
-npm i -g netlify-cli
-```
+This is the Cookie Theft Dementia Test. The web app was built using Remix and the model using the PyTorch XLNet transformer model.
 
-If you have previously installed the Netlify CLI, you should update it to the latest version:
+You can find the deployed product at: https://dementiabank-prediction-webapp.netlify.app/ 
 
-```sh
-npm i -g netlify-cli@latest
-```
+You can find the model used in this WebApp on HuggingFace at: https://huggingface.co/rmezapi/dementia-bank-seq-classif-xlnet
+  - The model is trained on the dataset found at https://huggingface.co/datasets/Ak000/Dementia_Bank_Train
+  - The data was split 80-15-5 % for training, validation, and testing.
+  - You can find the Python notebook for the model at the root of this repository.
 
-2. Sign up and log in to Netlify:
 
-```sh
-netlify login
-```
-
-3. Create a new site:
-
-```sh
-netlify init
-```
-
-## Development
-
-Ensure all packages are installed by running:
-
-```sh
-npm install
-```
-
-Run
-
-```sh
-netlify dev
-```
-
-Open up [http://localhost:8888](http://localhost:8888), and you're ready to go!
-
-### Serve your site locally
-
-To serve your site locally in a production-like environment, run
-
-```sh
-netlify serve
-```
-
-Your site will be available at [http://localhost:8888](http://localhost:8888). Note that it will not auto-reload when you make changes.
-
-## Deployment
-
-There are two ways to deploy your app to Netlify, you can either link your app to your git repo and have it auto deploy changes to Netlify, or you can deploy your app manually. If you've followed the setup instructions already, all you need to do is run this:
-
-```sh
-# preview deployment
-netlify deploy --build
-
-# production deployment
-netlify deploy --build --prod
-```
