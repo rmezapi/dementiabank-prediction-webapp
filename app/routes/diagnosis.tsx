@@ -2,11 +2,26 @@ import { useLocation } from '@remix-run/react';
 import fetch from 'node-fetch';
 import { Model } from '../components/Model';
 import { ActionFunctionArgs, json } from '@remix-run/node';
-import styles from '../styles/Global.css';
+import 'app/styles/Global.css';
 
 
 export function links() {
-  return [{ rel: "stylesheet", href: styles }];
+  return [{ rel: "stylesheet", href: "app/styles/Global.css"  }];
+}
+
+async function fetchWithRetry(url: string, options: RequestInit, maxRetries = 3) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      const response = await fetch(url, options);
+      if (response.ok) return response;
+      if (response.status !== 503) throw new Error(`HTTP error! status: ${response.status}`);
+      console.log(`Attempt ${i + 1} failed, retrying...`);
+    } catch (err) {
+      if (i === maxRetries - 1) throw err;
+      await new Promise(resolve => setTimeout(resolve, 2 ** i * 1000));
+    }
+  }
+  throw new Error('Max retries reached');
 }
 
 
@@ -19,20 +34,20 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   }
 
   try {
-    console.log("Calling HuggingFace API...")
-    console.log("transcript: ", transcript)
-    const response = await fetch('https://api-inference.huggingface.co/models/rmezapi/dementia-bank-seq-classif-xlnet', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.HF_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ inputs: transcript })
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+    console.log("Calling HuggingFace API...");
+    console.log("transcript: ", transcript);
+    
+    const response = await fetchWithRetry(
+      'https://api-inference.huggingface.co/models/rmezapi/dementia-bank-seq-classif-xlnet',
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.HF_API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ inputs: transcript })
+      }
+    );
 
     const data: any = await response.json();
     console.log('data: ', data[0][0]);
@@ -43,7 +58,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     }
   } catch (error: any) {
     console.error('Error fetching result:', error.message);
-    return json({ error: 'Error fetching result' }, { status: 500 });
+    return json({ error: 'Service temporarily unavailable. Please try again later.' }, { status: 503 });
   }
 };
 
@@ -55,9 +70,6 @@ export default function Diagnosis() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <h1 className="text-4xl font-bold mb-8">Test Results</h1>
-      <h2>  You said: </h2>
-      <p className="text-2xl"> {text} </p>
-      <h2> Your diagnosis: </h2>
 
       <Model transcript={text} />
     </div>

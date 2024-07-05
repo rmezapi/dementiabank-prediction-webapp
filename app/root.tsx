@@ -2,19 +2,19 @@ import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
   Links,
-  LiveReload,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import Index from './routes/_index';
+import Diagnosis from './routes/diagnosis';
 
-import styles from "./styles/tailwind.css";
+import '/app/styles/Global.css';
 
-
-export function links() {
-  return [{ rel: "stylesheet", href: styles }];
-}
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: "/app/styles/Global.css" },
+];
 
 export default function App() {
   return (
@@ -29,7 +29,6 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
       </body>
     </html>
   );

@@ -2,13 +2,13 @@ import { ActionFunctionArgs, json } from '@remix-run/node';
 import { 
   Button, 
   Image } from "@nextui-org/react";
-import styles from "~/styles/Global.css";
+import '/app/styles/Global.css';
 import { AudioRecorder } from "~/components/AudioRecorder"; 
 import { createClient } from "@deepgram/sdk";
 
 
 export function links() {
-  return [{ rel: "stylesheet", href: styles }];
+  return [{ rel: "stylesheet", href: "/app/styles/Global.css" }];
 }
 
 // Import the createClient function only on the server side
@@ -25,7 +25,7 @@ type ActionData = {
 
 // Export the action function
 export const action = async ({ request }: ActionFunctionArgs): Promise<ReturnType<typeof json<ActionData>>> => {
-  console.log('action')
+  console.log('In test action fn...')
   const formData = await request.formData();
   const audioFile = formData.get('audio') as File;
 
@@ -43,15 +43,13 @@ export const action = async ({ request }: ActionFunctionArgs): Promise<ReturnTyp
     console.log('Deepgram API response:', JSON.stringify(response, null, 2));
     const transcript = response.result.results.channels[0].alternatives[0].transcript;
     console.log('Transcription result:', transcript);
-	  console.log('success')
     if (!transcript) {
       console.log('Transcript is undefined');
       return json<ActionData>({ error: 'Transcription failed - no transcript returned' }, { status: 500 });
     }
-	  return json<ActionData>({ transcript });    
+	  return json<ActionData>({ transcript: transcript });    
   } catch (error) {
     console.error('Transcription error:', error);
-    console.log('fail')
     return json<ActionData>({ error: 'Transcription failed' }, { status: 500 });
   }
 };

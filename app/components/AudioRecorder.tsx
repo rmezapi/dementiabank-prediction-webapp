@@ -66,16 +66,22 @@ export const AudioRecorder: React.FC = () => {
   
     return (
       <div>
-        <Button className="record-btn" onClick={startRecording} disabled={isRecording}>Start Recording</Button>
-        <Button className="stop-btn" onClick={stopRecording} disabled={!isRecording}>Stop Recording</Button>
+        <div className='buttons'>
+          <h5 className='recording-status'>{recordingStatus}</h5>
+          {!isRecording && <Button className="record-btn" onClick={startRecording} disabled={isRecording}>Start Recording</Button>}
+          {isRecording && <Button className="stop-btn" onClick={stopRecording} disabled={!isRecording}>Stop Recording</Button>}
+        </div>
+        <div className='audio'>
         {audioUrl && <audio ref={audioRef} controls src={audioUrl} />}
-        <p>{recordingStatus}</p>
+        </div>
         {/* {recordingStatus === 'Recording stopped' && audioBlob && <SubmitRecording />} */}
-        {recordingStatus === 'Recording stopped' && audioBlob && (
-          <>
-            <SubmitRecordingButton audioBlob={audioBlob} />
-          </>
-        )}
+        <div className='submit'>
+          {recordingStatus === 'Recording stopped' && audioBlob && (
+            <>
+              <SubmitRecordingButton audioBlob={audioBlob} />
+            </>
+          )}
+        </div>
   
       </div>
     );
