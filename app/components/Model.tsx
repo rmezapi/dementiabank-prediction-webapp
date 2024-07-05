@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { useFetcher } from '@remix-run/react';
 import { Button } from '@nextui-org/react';
 import { useNavigate } from '@remix-run/react';
-import 'app/styles/Global.css';
+import 'public/styles/Global.css';
 
 export function links() {
-  return [{ rel: "stylesheet", href: "/app/styles/Global.css" }];
+  return [{ rel: "stylesheet", href: "/public/styles/Global.css" }];
 }
 
 // props for the model component 
@@ -47,14 +47,14 @@ export function Model({ transcript }: ModelProps) {
   }, [fetcher.data]);
 
   return (
-    <div>
+    <div className="min-h-dvh">
       {/* show textand  transcript when there is a transcript */}
       {transcript && <h5>You said:</h5> && <p className="text-2xl">"{transcript}"</p>}
       {/* show button to take test to see results when there is no transcript */}
       {!transcript && <Button onClick={handleNavigateToHome} color="primary" className="btn"> Take test to see results! </Button>}
       {/* show button to get test results when there is a transcript and the button is shown */}
       {showButton && transcript && (
-        <Button className="btn" onClick={sendToModel}>Get test results!</Button>
+        <Button className="submit-btn" onClick={sendToModel}>Get test results!</Button>
       )}
       {/* show the result and confidence when there is a result */}
       {result && (
@@ -78,7 +78,7 @@ export function Model({ transcript }: ModelProps) {
         <Button
           onClick={handleNavigateToHome}
           color="primary"
-          className="btn"
+          className="submit-btn"
         >
           Take test again
         </Button>

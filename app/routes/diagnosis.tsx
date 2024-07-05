@@ -2,11 +2,11 @@ import { useLocation } from '@remix-run/react';
 import fetch from 'node-fetch';
 import { Model } from '../components/Model';
 import { ActionFunctionArgs, json } from '@remix-run/node';
-import 'app/styles/Global.css';
+import 'public/styles/Global.css';
 
 
 export function links() {
-  return [{ rel: "stylesheet", href: "app/styles/Global.css"  }];
+  return [{ rel: "stylesheet", href: "public/styles/Global.css"  }];
 }
 
 // fetchWithRetry is a function that fetches data from the HuggingFace API with 3 retries
@@ -71,8 +71,8 @@ export default function Diagnosis() {
     const text = location.state?.transcript;
 
   return (
-    <div className=" diagnosis flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-4xl font-bold mb-8">Test Results</h1>
+    <div className=" diagnosis min-h-dvh flex flex-col items-center justify-center">
+      <h1 className=" title text-4xl font-bold mb-8">Test Results</h1>
       
       {/* model component render with transcription data as param */}
       <Model transcript={text} />

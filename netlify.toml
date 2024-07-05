@@ -12,5 +12,5 @@ framework = "vite"
 for = "/build/*"
 
 [headers.values]
-
+Content-Type = "text/css"
 "Cache-Control" = "public, max-age=31560000, immutable"

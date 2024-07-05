@@ -1,11 +1,11 @@
 import { Button } from "@nextui-org/react";
 import { useFetcher, useNavigate } from "@remix-run/react";
 import { useEffect } from "react";
-import 'app/styles/Global.css';
+import 'public/styles/Global.css';
 
 
 export function links() {
-  return [{ rel: "stylesheet", href: "/app/styles/Global.css" }];
+  return [{ rel: "stylesheet", href: "/public/styles/Global.css" }];
 }
 
 // props for the submit recording button
@@ -37,24 +37,23 @@ export const SubmitRecordingButton = ({ audioBlob }: SubmitRecordingButtonProps)
   }, [fetcher.data, navigate]);
 
   return (
-    <>
+    <div className="min-h-dvh">
+      {/* displays error message if there is an error */}
+      {fetcher.data?.error && <p className="error-message">Error: {fetcher.data.error} please try again</p>}
+      
       {/* submit button */}
       <Button
-        className="submit"
+        className="submit-btn"
         onClick={() => {
           handleTranscribe();
         }}
         color="primary"
         size="lg"
-        className="btn"
         disabled={fetcher.state === 'submitting'}
       >
         {/* submit button text changes when the fetcher state is submitting */}
         {fetcher.state === 'submitting' ? 'Submitting...' : 'Submit'}
       </Button>
-
-      {/* displays error message if there is an error */}
-      {fetcher.data?.error && <p>Error: {fetcher.data.error}</p>}
-    </>
+    </div>
   );
 };

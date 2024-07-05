@@ -66,7 +66,7 @@ export const AudioRecorder: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-dvh">
       <div className='buttons'>
         {/* recording status to let the user know whether the mic is recording or not */}
         <h5 className='recording-status'>{recordingStatus}</h5>

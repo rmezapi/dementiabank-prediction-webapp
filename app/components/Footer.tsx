@@ -1,13 +1,13 @@
 import React from 'react';
-import 'app/styles/Global.css';
+import 'public/styles/Global.css';
 
 export function links() {
-    return [{ rel: "stylesheet", href: "/app/styles/Global.css" }];
+    return [{ rel: "stylesheet", href: "/public/styles/Global.css" }];
   }
 
 export function Footer() {
   return (
-    <footer className="footer bg-gray-100 p-4 mt-8">
+    <footer className="footer min-h-dvh bg-gray-100 p-4 mt-8">
       <div className="container mx-auto text-center">
         <p>&copy; 2024 Rodrigo Meza & CareYaya. All rights reserved.</p>
       </div>

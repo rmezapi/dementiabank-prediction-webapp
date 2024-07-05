@@ -2,13 +2,13 @@ import { ActionFunctionArgs, json } from '@remix-run/node';
 import { 
   Button, 
   Image } from "@nextui-org/react";
-import '/app/styles/Global.css';
+import 'public/styles/Global.css';
 import { AudioRecorder } from "~/components/AudioRecorder"; 
 import { createClient } from "@deepgram/sdk";
 
 
 export function links() {
-  return [{ rel: "stylesheet", href: "/app/styles/Global.css" }];
+  return [{ rel: "stylesheet", href: "/public/styles/Global.css" }];
 }
 
 // Import the createClient function only on the server side
@@ -56,13 +56,13 @@ export const action = async ({ request }: ActionFunctionArgs): Promise<ReturnTyp
 
 export default function Test() {
   return (
-    <div>
-      <h1>Dementia Detection Test</h1>
+    <div className="min-h-dvh">
+      <h1 className="title">Dementia Detection Test</h1>
       <Image
-        width={500}
+        className="image"
         alt="Cookie Theft Test"
         src="https://res.cloudinary.com/dxewrioco/image/upload/v1720200161/cookie_uexxc3.png"
-        className="mb-4"
+        
       />
       <h3> Instructions: </h3>
       <p> Describe everything you see in the image in an audio recording.</p> 
