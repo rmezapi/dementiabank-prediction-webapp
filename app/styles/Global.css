@@ -1,0 +1,50 @@
+#root {
+    width: 100%;
+    max-width: 1200px; /* or whatever maximum width you prefer */
+    text-align: center;
+  }
+
+body {
+  background-color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 100vh;
+}
+
+.btn {
+  background-color: #0096c7;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  align-self: center;
+}
+
+.record-btn{
+  background-color: #00a86b;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  align-self: center;
+}
+
+.stop-btn{
+  background-color: #bc544c;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  align-self: center;
+}

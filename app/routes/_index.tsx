@@ -1,41 +1,24 @@
-import type { MetaFunction } from "@remix-run/node";
+import { Link } from "@remix-run/react";
+import { Button } from "@nextui-org/react";
+import styles from '~/styles/Global.css';
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
+export function links() {
+  return [{ rel: "stylesheet", href: styles }];
+}
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <h1 className="text-4xl font-bold mb-8"> Welcome to Dementia Detection AI</h1>
+      <Button
+        as={Link}
+        to="./test"
+        color="primary"
+        size="lg"
+        className="btn"
+      >
+        Begin Test
+      </Button>
     </div>
   );
 }
