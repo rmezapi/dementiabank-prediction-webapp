@@ -2,7 +2,8 @@
 
 
 
-<img width="719" alt="image" src="https://github.com/rmezapi/dementia-bank-speech-to-text-prediction-webapp/assets/69809420/181b7f4c-e235-4ef5-bfa2-00a66a754150">
+<img width="567" alt="image" src="https://github.com/rmezapi/dementiabank-prediction-webapp/assets/69809420/f26e30c0-b155-4859-9b4b-b7b36cb351a6">
+
 
 This is the Cookie Theft Dementia Test. The web app was built using Remix and the model using the PyTorch XLNet transformer model.
 
