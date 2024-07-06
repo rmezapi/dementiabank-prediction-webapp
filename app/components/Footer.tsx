@@ -1,9 +1,3 @@
-import 'app/styles/Global.css';
-
-export function links() {
-    return [{ rel: "stylesheet", href: "app/styles/Global.css" }];
-  }
-
 export function Footer() {
   return (
     <footer className="footer min-h-dvh bg-gray-100 p-4 mt-8">

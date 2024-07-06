@@ -2,12 +2,6 @@ import { useLocation } from '@remix-run/react';
 import fetch from 'node-fetch';
 import { Model } from '../components/Model';
 import { ActionFunctionArgs, json } from '@remix-run/node';
-import 'app/styles/Global.css';
-
-
-export function links() {
-  return [{ rel: "stylesheet", href: "app/styles/Global.css"  }];
-}
 
 // fetchWithRetry is a function that fetches data from the HuggingFace API with 3 retries
 async function fetchWithRetry(url: string, options: RequestInit, maxRetries = 3) {

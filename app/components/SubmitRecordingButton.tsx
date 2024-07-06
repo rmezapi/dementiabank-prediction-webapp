@@ -1,12 +1,6 @@
 import { Button } from "@nextui-org/react";
 import { useFetcher, useNavigate } from "@remix-run/react";
 import { useEffect } from "react";
-import 'app/styles/Global.css';
-
-
-export function links() {
-  return [{ rel: "stylesheet", href: "app/styles/Global.css" }];
-}
 
 // props for the submit recording button
 interface SubmitRecordingButtonProps {

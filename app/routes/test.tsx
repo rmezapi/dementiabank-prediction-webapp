@@ -2,14 +2,9 @@ import { ActionFunctionArgs, json } from '@remix-run/node';
 import { 
   Button, 
   Image } from "@nextui-org/react";
-import 'app/styles/Global.css';
 import { AudioRecorder } from "~/components/AudioRecorder"; 
 import { createClient } from "@deepgram/sdk";
 
-
-export function links() {
-  return [{ rel: "stylesheet", href: "app/styles/Global.css" }];
-}
 
 // Import the createClient function only on the server side
 let deepgramClient: any;
